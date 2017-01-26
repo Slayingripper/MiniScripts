@@ -1,7 +1,7 @@
 #!/bin/bash
-tmpfile=$( /bin/mktemp -t )
-myname=email@address.com
-/bin/echo return-path: $myname >> $tmpfile
+tmpfile=$( /bin/mktemp -t )           #creates the temp file
+myname=email@address.com              #insert your email so when proccess completes you will get notified 
+/bin/echo return-path: $myname >> $tmpfile 
 /bin/echo for: $myname >> $tmpfile
 /bin/echo from: $myname >> $tmpfile
 /bin/echo to: $myname >> $tmpfile
@@ -14,7 +14,7 @@ myname=email@address.com
 /usr/bin/apt-get -qy update > /dev/null
 /usr/bin/apt-get -qy dist-upgrade | grep -i installed >> $tmpfile
 /bin/echo >> $tmpfile
-/bin/echo Yours truly, "Your Linux Computer" >> $tmpfile
+/bin/echo Yours truly, "Your Linux Computer" >> $tmpfile       #Displays a simple message 
 /bin/echo >> $tmpfile
 /bin/cat $tmpfile | sendmail -t
 /bin/rm $tmpfile
